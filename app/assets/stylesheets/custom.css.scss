@@ -1,2 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.inputs {
+  overflow: auto;
+}
+
+.input-group .form-control {
+    width: 70px;
+    float: right;
+}
