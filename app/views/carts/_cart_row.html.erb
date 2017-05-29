@@ -1,19 +1,19 @@
 <div class="well">
 
   <div class="cart-row row">
-    <div class="col-xs-8">
+    <div class="col-sm-12 col-xs-12 col-md-8 col-lg-8">
       <h4><%= product.name %></h4>
     </div>
-    <div class="col-xs-4">
+    <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
       
       <%= form_for order_item, remote: true do |f| %>
         <h4 class="text-right">Cena: <span style="color: green"><%= number_to_currency order_item.unit_price, locale: :sr %></span></h4>
         <div class="row">
-          <div class="col-xs-12 col-md-4 col-lg-4">
+          <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
             <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control number-field", min: 1 %>
             <%= f.hidden_field :product_id, value: product.id %>
           </div>
-          <div class="col-xs-12 col-md-8 col-lg-8 text-right">
+          <div class="col-sm-12 col-xs-12 col-md-8 col-lg-8 text-right">
             <div class="btn-group">
               <%= f.submit "Osveži", class: "btn btn-primary" %>
               <%= link_to "Obriši", order_item, { data: { confirm: "Da li ste sigurni da želite da obrišete artikal '#{order_item.product.name}' sa vaše kartice?" }, method: :delete, remote: true, class: "btn btn-danger" } %>
